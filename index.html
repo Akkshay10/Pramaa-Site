@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pramaa Solutions — B2B & B2C Platforms, Automation & Apps</title>
+  <meta name="description" content="Pramaa Solutions builds beautiful, high‑performance B2B & B2C platforms that replace spreadsheets and manual work. Launch portals, workflows, dashboards, and automations—fast."/>
+  <meta name="robots" content="index,follow"/>
+  <link rel="icon" href="./assets/favicon.png" type="image/png"/>
+  <style>
+    :root{
+      --bg:#070b12; --panel:#0c121d; --card:#0f1624; --text:#eaf1ff; --muted:#9fb0c8;
+      --brand1:#6df0c2; --brand2:#7aa8ff; --brand3:#a67cff; --border:#1b2a44;
+      --glow: 0 0 40px rgba(109,240,194,.25), 0 8px 28px rgba(122,168,255,.15);
+      --radius:18px; --radius-lg:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(1000px 500px at 20% -10%,rgba(122,168,255,.15),transparent),
+      radial-gradient(900px 420px at 110% 10%,rgba(166,124,255,.18),transparent),
+      var(--bg);
+      color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 22px}
+    .btn{display:inline-flex;gap:.65rem;align-items:center;justify-content:center;padding:.95rem 1.2rem;border-radius:14px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.25s;box-shadow:var(--glow)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#041018}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-ghost{border-color:var(--border);background:transparent;color:var(--text)}
+    header{position:sticky;top:0;z-index:20;background:rgba(7,11,18,.55);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:.9rem;align-items:center;font-weight:900;letter-spacing:.2px}
+    .brand img{height:40px;width:auto;border-radius:8px;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+    .links{display:flex;gap:.9rem}
+    .links a{padding:.55rem .8rem;border-radius:10px;color:var(--muted)}
+    .links a:hover{background:#0d1524;color:var(--text)}
+    .hero{padding:64px 0 24px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+    .eyebrow{display:inline-flex;gap:.4rem;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem;color:var(--muted);font-size:.85rem}
+    h1{font-size:clamp(30px,4.8vw,60px);line-height:1.05;margin:12px 0}
+    .sub{color:var(--muted);font-size:1.08rem;margin:0 0 22px}
+    .hero-card{background:linear-gradient(180deg,#101b2d,#0c1220);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--glow)}
+    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+    .k{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px;text-align:center}
+    .k .n{font-weight:900;font-size:1.35rem}
+    .k .l{color:var(--muted);font-size:.86rem}
+    section{padding:66px 0}
+    h2{font-size:clamp(22px,3vw,36px);margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 26px}
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:linear-gradient(180deg,#101725,#0c121d);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .muted{color:var(--muted)}
+    .impact{background:linear-gradient(90deg,rgba(125,175,255,.08),rgba(109,240,194,.08));border-block:1px solid var(--border)}
+    .impact .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .impact .stat{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px;text-align:center}
+    .impact .stat .big{font-size:2rem;font-weight:900}
+    .before-after{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .ba{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px}
+    .ba h3{margin:0 0 6px}
+    .tag{display:inline-block;padding:.25rem .55rem;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.8rem}
+    .cta{background:linear-gradient(135deg,rgba(109,240,194,.08),rgba(122,168,255,.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+    form{display:grid;gap:12px}
+    label{font-weight:700}
+    input,select,textarea{width:100%;background:#0c131e;border:1px solid var(--border);border-radius:12px;padding:12px 12px;color:var(--text)}
+    input:focus,select:focus,textarea:focus{outline:2px solid var(--brand2);outline-offset:1px}
+    .twocol{display:grid;gap:12px;grid-template-columns:1fr 1fr}
+    footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted)}
+    .reveal{opacity:0;transform:translateY(14px);transition:all .6s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      .cols-3{grid-template-columns:1fr 1fr}
+      .impact .stats{grid-template-columns:1fr 1fr}
+      .before-after{grid-template-columns:1fr}
+      .twocol{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .cols-3{grid-template-columns:1fr}
+      .brand img{height:34px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="./assets/logo.png" alt="Pramaa Solutions logo with caption" />
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#what">Solutions</a>
+        <a href="#impact">Impact</a>
+        <a href="#case">Case Study</a>
+        <a href="#contact" class="btn btn-primary" style="box-shadow:none">Book a consult</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">AI, Automation, and Apps—done right.</span>
+        <h1>From spreadsheets to platforms.<br/> B2B & B2C solutions that scale.</h1>
+        <p class="sub">We design beautiful, reliable web platforms—dealer portals, ordering systems, workflows, and dashboards—that cut manual effort and accelerate revenue. Launch in weeks, not months.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="#contact" class="btn btn-primary">Get a build estimate</a>
+          <a href="#what" class="btn btn-ghost">See solutions</a>
+        </div>
+      </div>
+      <div class="hero-card reveal" id="heroCard">
+        <div class="card" style="display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center">
+          <div>
+            <div style="font-weight:800">Quote‑to‑Cash Flow</div>
+            <div class="muted" style="font-size:.92rem">Approvals, price rules, payment links, PDF emails</div>
+          </div>
+          <span class="tag">Live</span>
+        </div>
+        <div class="kpis">
+          <div class="k"><div class="n" data-countto="72" data-suffix="%">0%</div><div class="l">Manual steps reduced</div></div>
+          <div class="k"><div class="n" data-prefix="×" data-countto="5">×0</div><div class="l">Faster quote creation</div></div>
+          <div class="k"><div class="n" data-countto="99.9" data-suffix="%">0%</div><div class="l">Platform uptime</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="what">
+    <div class="container">
+      <h2>What we build</h2>
+      <p class="lead">End‑to‑end B2B/B2C platforms that turn messy spreadsheets and manual processes into clean, automated workflows.</p>
+      <div class="grid cols-3">
+        <div class="card reveal"><div class="tag">B2B</div><h3>Dealer / Distributor Portals</h3><p class="muted">Onboarding, inventory, bulk orders, pricing tiers, approvals.</p></div>
+        <div class="card reveal"><div class="tag">B2C</div><h3>E‑commerce & Ordering</h3><p class="muted">Catalogs, taxes/GST, email/PDF invoices, secure payments.</p></div>
+        <div class="card reveal"><div class="tag">Ops</div><h3>Internal Tools</h3><p class="muted">Tickets, forms, audit logs, role‑based access, notifications.</p></div>
+        <div class="card reveal"><div class="tag">Dashboards</div><h3>Data & Insights</h3><p class="muted">Business KPIs with scheduled refresh and exports.</p></div>
+        <div class="card reveal"><div class="tag">AI</div><h3>Assistants & Autofill</h3><p class="muted">Knowledge search, document Q&A, form autofill, email drafts.</p></div>
+        <div class="card reveal"><div class="tag">Compliance</div><h3>Audits & Validation</h3><p class="muted">GSTIN checks, audit trails, CSV/Excel import & export.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="impact" class="impact">
+    <div class="container">
+      <h2>Impact we deliver</h2>
+      <p class="lead">Typical outcomes our clients see after going live with Pramaa.</p>
+      <div class="stats">
+        <div class="stat reveal"><div class="big" data-countto="65" data-suffix="%">0%</div><div class="muted">Less manual effort</div></div>
+        <div class="stat reveal"><div class="big" data-countto="80" data-suffix="%">0%</div><div class="muted">Faster cycle times</div></div>
+        <div class="stat reveal"><div class="big" data-countto="50" data-suffix="%">0%</div><div class="muted">Fewer errors</div></div>
+        <div class="stat reveal"><div class="big" data-countto="3" data-prefix="×">0×</div><div class="muted">Quicker onboarding</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case">
+    <div class="container">
+      <h2>Case study — Retail quotation engine</h2>
+      <p class="lead">Replacing spreadsheets with a searchable catalog, approvals, and automatic quotes.</p>
+      <div class="before-after">
+        <div class="ba reveal">
+          <h3>Before</h3>
+          <ul>
+            <li>Scattered Excel files across teams</li>
+            <li>Manual price lookups & approvals via email</li>
+            <li>Quote turnaround ~30 minutes</li>
+          </ul>
+        </div>
+        <div class="ba reveal">
+          <h3>After</h3>
+          <ul>
+            <li>Central product database with typeahead search</li>
+            <li>Built‑in rules & role‑based approvals</li>
+            <li>One‑click PDF quote & payment link — <strong>~3 minutes</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid cols-2" style="margin-top:14px">
+        <div class="card reveal"><strong>Result:</strong> 70% fewer manual steps, 5× faster quotes, fewer pricing errors.</div>
+        <div class="card reveal"><strong>Testimonial:</strong> “Our team stopped chasing spreadsheets. Customers get quotes in minutes.”</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <div class="card reveal" style="display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
+        <div>
+          <h2 style="margin:0">Ready to transform your process?</h2>
+          <p class="muted" style="margin:6px 0 0">Tell us what you want to build and get a fast, clear estimate.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary">Book a 20‑min consult</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT: email via FormSubmit (edit EMAIL_HERE), Netlify Forms compatible -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact / Book a demo</h2>
+      <p class="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., founder@pramaa.solutions).</p>
+      <form id="leadForm"
+            action="https://formsubmit.co/EMAIL_HERE"
+            method="POST"
+            name="contact" netlify class="reveal">
+        <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="twocol">
+          <div>
+            <label for="name">Name *</label>
+            <input id="name" name="name" required placeholder="Your full name" />
+          </div>
+          <div>
+            <label for="email">Work email *</label>
+            <input id="email" type="email" name="email" required placeholder="you@company.com" />
+          </div>
+        </div>
+        <div class="twocol">
+          <div>
+            <label for="company">Company</label>
+            <input id="company" name="company" placeholder="Company name" />
+          </div>
+          <div>
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" name="phone" placeholder="+91…" />
+          </div>
+        </div>
+        <div>
+          <label for="desc">What do you want to build? *</label>
+          <textarea id="desc" name="message" rows="5" required placeholder="100–200 words about your workflow, users, and must‑haves"></textarea>
+        </div>
+        <div class="twocol">
+          <div>
+            <label for="timeline">Ideal timeline</label>
+            <select id="timeline" name="timeline">
+              <option>2–4 weeks</option>
+              <option>1–2 months</option>
+              <option>&gt;2 months</option>
+            </select>
+          </div>
+          <div>
+            <label for="budget">Budget band</label>
+            <select id="budget" name="budget">
+              <option>₹1–2L</option>
+              <option>₹2–5L</option>
+              <option>₹5L+</option>
+            </select>
+          </div>
+        </div>
+        <label style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" name="copy"/> <span>Send me a copy by email</span></label>
+        <button class="btn btn-primary" type="submit">Get my estimate</button>
+        <div id="thanks" style="display:none;margin-top:8px;color:var(--brand1);font-weight:900">Thanks! Your message was sent.</div>
+      </form>
+      <p class="muted" style="margin-top:8px">If you deploy to Netlify instead, enable <em>Site settings → Forms → Notifications</em> to forward submissions to your email.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <div>© <span id="yr"></span> Pramaa Solutions — Practical automation and custom platforms.</div>
+      <div><a href="#" class="eyebrow">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <script>
+    function animateCount(el){
+      const target = parseFloat(el.dataset.countto);
+      const start = 0;
+      const duration = 1200;
+      const startTime = performance.now();
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      function tick(now){
+        const p = Math.min(1,(now-startTime)/duration);
+        const val = start + (target - start) * p;
+        el.textContent = prefix + (suffix==='%' ? val.toFixed(1) : Math.round(val)) + suffix;
+        if(p<1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    const observer=new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          const nums = e.target.querySelectorAll('[data-countto]');
+          nums.forEach(animateCount);
+        }
+      })
+    },{threshold:.25});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('leadForm');
+    form.addEventListener('submit', function(){
+      setTimeout(()=>{
+        const thanks = document.getElementById('thanks');
+        if(thanks) thanks.style.display='block';
+        const btn = form.querySelector('button[type="submit"]');
+        if(btn){ btn.disabled=true; btn.textContent='Submitted'; }
+      }, 200);
+    });
+  </script>
+</body>
+</html>
