@@ -69,6 +69,18 @@
       border-color:var(--brand1);
       transform:scale(1.06) rotate(-2deg);
     }
+    .brand .logo-wrap{
+      display:inline-grid;
+      place-items:center;
+      padding:10px;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      box-shadow:0 8px 26px rgba(0,0,0,0.45), 0 0 22px rgba(122,168,255,0.06);
+      margin-right:8px;
+      min-width:56px;
+      min-height:56px;
+    }
+    .brand .logo-wrap img{height:44px;width:auto;border-radius:8px;display:block}
     .links{display:flex;gap:.9rem}
     .links a{padding:.55rem .8rem;border-radius:10px;color:var(--muted)}
     .links a:hover{background:#0d1524;color:var(--text)}
@@ -138,7 +150,7 @@
   <header>
     <div class="container nav">
       <div class="brand">
-        <img src="./assets/logo.png" alt="Pramaa Solutions logo with caption" />
+        <div class="logo-wrap"><img src="./assets/logo.png" alt="Pramaa Solutions logo with caption" onerror="this.onerror=null;this.src='./assets/favicon.png';this.style.height='36px'" /></div>
         <span style="font-size:1.35rem;font-weight:900;color:var(--brand2);text-shadow:0 2px 12px var(--brand1),0 0 2px #fff;letter-spacing:.5px;">Pramaa Solutions</span>
       </div>
       <nav class="links" aria-label="Primary">
