@@ -1,0 +1,51 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Editor/IDE
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+
+# Node / package managers
+node_modules/
+pramaa-next/node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Next.js build output
+pramaa-next/.next/
+.pramaa-next/
+pramaa-next/.vercel/
+
+# Build and cache
+dist/
+build/
+.cache/
+coverage/
+
+# Environment
+.env
+.env.*
+pramaa-next/.env*
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Archives and large assets
+pramaa_assets.zip
+*.zip
+
+# Misc
+*.log
+*.tmp
+
+# Ignore local OS thumbnails
+Thumbs.db
