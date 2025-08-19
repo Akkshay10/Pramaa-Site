@@ -49,3 +49,14 @@ pramaa_assets.zip
 
 # Ignore local OS thumbnails
 Thumbs.db
+
+# Next.js / Node
+node_modules/
+.next/
+out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.env*
+.DS_Store
