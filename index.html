@@ -13,6 +13,8 @@
       --brand1:#6df0c2; --brand2:#7aa8ff; --brand3:#a67cff; --border:#1b2a44;
       --glow: 0 0 40px rgba(109,240,194,.25), 0 8px 28px rgba(122,168,255,.15);
       --radius:18px; --radius-lg:28px;
+      --logo-glow: 0 0 24px 6px rgba(122,168,255,0.45), 0 0 0 4px rgba(109,240,194,0.18);
+      --hero-gradient: linear-gradient(120deg, rgba(109,240,194,0.18) 0%, rgba(122,168,255,0.18) 100%);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -24,18 +26,66 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1200px;margin:0 auto;padding:0 22px}
     .btn{display:inline-flex;gap:.65rem;align-items:center;justify-content:center;padding:.95rem 1.2rem;border-radius:14px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.25s;box-shadow:var(--glow)}
-    .btn-primary{background:linear-gradient(135deg,var(--brand1),var(--brand2));color:#041018}
-    .btn-primary:hover{transform:translateY(-2px)}
-    .btn-ghost{border-color:var(--border);background:transparent;color:var(--text)}
+    .btn-primary{
+      background:linear-gradient(135deg,var(--brand1),var(--brand2));
+      color:#041018;
+      box-shadow:0 0 0 0 var(--brand1),var(--glow);
+      border:1.5px solid var(--brand2);
+      font-size:1.08rem;
+      letter-spacing:.02em;
+      transition:box-shadow .25s,transform .18s,border-color .18s;
+    }
+    .btn-primary:hover{
+      transform:translateY(-3px) scale(1.04);
+      box-shadow:0 0 0 4px var(--brand1),var(--glow);
+      border-color:var(--brand1);
+    }
+
+    .btn-ghost{
+      border-color:var(--border);
+      background:rgba(122,168,255,0.06);
+      color:var(--text);
+      transition:background .2s,border-color .2s;
+    }
+    .btn-ghost:hover{
+      background:rgba(166,124,255,0.13);
+      border-color:var(--brand2);
+      color:var(--brand1);
+    }
     header{position:sticky;top:0;z-index:20;background:rgba(7,11,18,.55);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--border)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
     .brand{display:flex;gap:.9rem;align-items:center;font-weight:900;letter-spacing:.2px}
-    .brand img{height:40px;width:auto;border-radius:8px;box-shadow:0 2px 14px rgba(0,0,0,.25)}
+    .brand img{
+      height:60px;
+      width:auto;
+      border-radius:14px;
+      box-shadow:var(--logo-glow),0 2px 18px rgba(0,0,0,.28);
+      border:2.5px solid var(--brand2);
+      background:rgba(255,255,255,0.04);
+      transition:box-shadow .3s,border-color .3s,transform .2s;
+    }
+    .brand img:hover{
+      box-shadow:0 0 32px 8px var(--brand1),0 2px 18px rgba(0,0,0,.32);
+      border-color:var(--brand1);
+      transform:scale(1.06) rotate(-2deg);
+    }
     .links{display:flex;gap:.9rem}
     .links a{padding:.55rem .8rem;border-radius:10px;color:var(--muted)}
     .links a:hover{background:#0d1524;color:var(--text)}
-    .hero{padding:64px 0 24px}
-    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center}
+    .hero{
+      padding:64px 0 24px;
+      background:var(--hero-gradient),radial-gradient(1000px 500px at 20% -10%,rgba(122,168,255,.15),transparent),radial-gradient(900px 420px at 110% 10%,rgba(166,124,255,.18),transparent),var(--bg);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:'';
+      position:absolute;left:50%;top:0;transform:translateX(-50%);
+      width:1200px;height:320px;
+      background:radial-gradient(ellipse at center,rgba(166,124,255,0.13) 0%,rgba(109,240,194,0.09) 100%);
+      filter:blur(18px);z-index:0;pointer-events:none;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;position:relative;z-index:1}
     .eyebrow{display:inline-flex;gap:.4rem;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem;color:var(--muted);font-size:.85rem}
     h1{font-size:clamp(30px,4.8vw,60px);line-height:1.05;margin:12px 0}
     .sub{color:var(--muted);font-size:1.08rem;margin:0 0 22px}
@@ -50,7 +100,9 @@
     .grid{display:grid;gap:18px}
     .cols-3{grid-template-columns:repeat(3,1fr)}
     .cols-2{grid-template-columns:repeat(2,1fr)}
-    .card{background:linear-gradient(180deg,#101725,#0c121d);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .card{
+      background:linear-gradient(180deg,#101725,#0c121d);border:1.5px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:0 2px 18px 0 rgba(122,168,255,0.08),0 1.5px 8px 0 rgba(109,240,194,0.07);transition:box-shadow .22s,transform .18s}
+    .card.reveal.show:hover{box-shadow:0 0 0 4px var(--brand2),0 2px 24px 0 rgba(109,240,194,0.13);transform:translateY(-2px) scale(1.025)}
     .muted{color:var(--muted)}
     .impact{background:linear-gradient(90deg,rgba(125,175,255,.08),rgba(109,240,194,.08));border-block:1px solid var(--border)}
     .impact .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
@@ -67,7 +119,7 @@
     input:focus,select:focus,textarea:focus{outline:2px solid var(--brand2);outline-offset:1px}
     .twocol{display:grid;gap:12px;grid-template-columns:1fr 1fr}
     footer{border-top:1px solid var(--border);padding:26px 0;color:var(--muted)}
-    .reveal{opacity:0;transform:translateY(14px);transition:all .6s ease}
+    .reveal{opacity:0;transform:translateY(24px) scale(.98);transition:all .7s cubic-bezier(.22,1,.36,1);}
     .reveal.show{opacity:1;transform:none}
     @media (max-width: 980px){
       .hero-grid{grid-template-columns:1fr}
@@ -78,7 +130,7 @@
     }
     @media (max-width: 640px){
       .cols-3{grid-template-columns:1fr}
-      .brand img{height:34px}
+      .brand img{height:44px}
     }
   </style>
 </head>
@@ -87,6 +139,7 @@
     <div class="container nav">
       <div class="brand">
         <img src="./assets/logo.png" alt="Pramaa Solutions logo with caption" />
+        <span style="font-size:1.35rem;font-weight:900;color:var(--brand2);text-shadow:0 2px 12px var(--brand1),0 0 2px #fff;letter-spacing:.5px;">Pramaa Solutions</span>
       </div>
       <nav class="links" aria-label="Primary">
         <a href="#what">Solutions</a>
