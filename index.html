@@ -100,6 +100,16 @@
     .links a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
     .cta-small{padding:.6rem .95rem;border-radius:12px}
 
+    /* Mobile menu toggle */
+    .menu-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 10px;border-radius:10px;font-size:20px;line-height:1;cursor:pointer}
+
+    /* Mobile nav: when .container.nav has .open show dropdown */
+    .container.nav.open .links{display:flex;flex-direction:column;position:absolute;top:70px;right:18px;background:linear-gradient(180deg,var(--panel),#071020);border:1px solid var(--border);padding:12px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);min-width:180px;z-index:60}
+    .container.nav.open .links a{display:block;padding:.8rem 1rem}
+
+    /* Make primary actions full width on small screens */
+    .stack-mobile{display:inline-flex}
+
     .hero{
       padding:64px 0 24px;
       background:var(--hero-gradient),radial-gradient(1000px 500px at 20% -10%,rgba(122,168,255,.15),transparent),radial-gradient(900px 420px at 110% 10%,rgba(166,124,255,.18),transparent),var(--bg);
@@ -155,12 +165,21 @@
       .impact .stats{grid-template-columns:1fr 1fr}
       .before-after{grid-template-columns:1fr}
       .twocol{grid-template-columns:1fr}
+      .menu-toggle{display:inline-flex}
+      .container.nav .links{display:none}
+      .stack-mobile{width:100%;flex-direction:column}
+      .stack-mobile .btn{width:100%}
     }
     @media (max-width: 640px){
       .cols-3{grid-template-columns:1fr}
-      .brand img{height:72px}
-      .brand .logo-wrap{min-width:80px;min-height:80px;padding:10px}
-      .brand .logo-wrap img{height:56px}
+      .brand img{height:56px}
+      .brand .logo-wrap{min-width:64px;min-height:64px;padding:8px}
+      .brand .logo-wrap img{height:48px}
+      /* footer columns stack */
+      footer .footer-grid{grid-template-columns:1fr;gap:12px}
+      /* increase tap target sizes */
+      .links a{padding:12px 10px}
+      .btn{padding:.9rem 1rem}
     }
   </style>
 </head>
@@ -175,7 +194,8 @@
              <div style="font-size:.78rem;color:var(--muted);margin-top:2px">Automation, Platforms & Apps</div>
            </div>
          </div>
-       </div>
+      </div>
+      <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
       <nav class="links" aria-label="Primary">
         <a href="#what">Solutions</a>
         <a href="#impact">Impact</a>
@@ -440,6 +460,17 @@
         if(btn){ btn.disabled=true; btn.textContent='Submitted'; }
       }, 200);
     });
+
+    // Mobile nav toggle
+    (function(){
+      const toggle = document.querySelector('.menu-toggle');
+      const container = document.querySelector('.container.nav');
+      if(toggle && container){
+        toggle.addEventListener('click', ()=> container.classList.toggle('open'));
+        // close when a link is clicked
+        container.querySelectorAll('.links a').forEach(a=>a.addEventListener('click', ()=> container.classList.remove('open')));
+      }
+    })();
   </script>
 </body>
 </html>
