@@ -157,7 +157,6 @@ export default function Home(){
                   </select>
                 </div>
               </div>
-              <label style={{display:'flex',gap:'.6rem',alignItems:'center'}}><input type="checkbox" name="copy"/> <span>Send me a copy by email</span></label>
               <button className="btn btn-primary" type="submit">Get my estimate</button>
               <div id="thanks" style={{display:'none',marginTop:8,color:'var(--brand1)',fontWeight:900}}>Thanks! Your message was sent.</div>
             </form>
