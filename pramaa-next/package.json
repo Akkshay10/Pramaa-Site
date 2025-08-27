@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "npm run sitemap && npm run robots",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "sitemap": "node ../scripts/generate-sitemap.js",
+    "robots": "node ../scripts/generate-robots.js"
   },
   "dependencies": {
     "next": "14.0.0",
