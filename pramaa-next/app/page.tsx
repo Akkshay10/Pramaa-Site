@@ -109,12 +109,11 @@ export default function Home(){
             <h2>Contact / Book a demo</h2>
             <p className="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., info@pramaa.solutions).</p>
 
-            <form action="https://formsubmit.co/info@pramaa.solutions" method="POST" name="contact" className="reveal">
+            <form action="/.netlify/functions/submit" method="POST" name="contact" className="reveal">
               <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="_next" value="/thank-you.html" />
               <div className="twocol">
                 <div>
                   <label htmlFor="name">Name *</label>

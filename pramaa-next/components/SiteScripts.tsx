@@ -58,37 +58,66 @@ export default function SiteScripts(){
 
     // Form submit handler — shows thanks & disables button
     const form = document.getElementById('leadForm') as HTMLFormElement | null;
-    function onSubmit(e: Event){
+    async function onSubmit(e: Event){
       const f = e.target as HTMLFormElement | null;
-      // If submitting to FormSubmit, submit in a new tab so original page isn't blocked
+      e.preventDefault?.();
       try{
         if(f && f.action && f.action.includes('formsubmit.co')){
+          // existing behavior for direct FormSubmit posts
           f.target = '_blank';
-          // Auto-CC the visitor and set reply-to so they receive a copy
-          try{
-            const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
-            const userEmail = emailField?.value?.trim() || '';
-            if(userEmail){
-              let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
-              if(!cc){
-                cc = document.createElement('input');
-                cc.type = 'hidden';
-                cc.name = '_cc';
-                f.appendChild(cc);
-              }
-              cc.value = userEmail;
-
-              let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
-              if(!reply){
-                reply = document.createElement('input');
-                reply.type = 'hidden';
-                reply.name = '_replyto';
-                f.appendChild(reply);
-              }
-              reply.value = userEmail;
-            }
-          }catch(e){}
         }
+
+        // If the form action points to the Netlify function, submit via fetch
+        if(f && f.action && f.action.includes('/.netlify/functions/submit')){
+          const data = new FormData(f);
+          // send as urlencoded so the function can parse it
+          const body = new URLSearchParams();
+          data.forEach((v,k)=> body.append(k, String(v)));
+          try{
+            const res = await fetch(f.action, { method: 'POST', body, headers: { 'Accept': 'application/json' } });
+            // on success redirect to _next or show thanks
+            if(res.ok){
+              const next = (f.querySelector('input[name="_next"]') as HTMLInputElement | null)?.value || '/thank-you.html';
+              window.location.href = next;
+            }
+          }catch(err){
+            // fall back to showing thanks locally
+            const thanks = document.getElementById('thanks') as HTMLElement | null;
+            if(thanks) thanks.style.display = 'block';
+          }
+          return; // prevent default form submission
+        }
+
+        // If submitting to FormSubmit, auto-cc and reply-to logic
+        try{
+          if(f && f.action && f.action.includes('formsubmit.co')){
+            // Auto-CC the visitor and set reply-to so they receive a copy
+            try{
+              const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
+              const userEmail = emailField?.value?.trim() || '';
+              if(userEmail){
+                let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
+                if(!cc){
+                  cc = document.createElement('input');
+                  cc.type = 'hidden';
+                  cc.name = '_cc';
+                  f.appendChild(cc);
+                }
+                cc.value = userEmail;
+
+                let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
+                if(!reply){
+                  reply = document.createElement('input');
+                  reply.type = 'hidden';
+                  reply.name = '_replyto';
+                  f.appendChild(reply);
+                }
+                reply.value = userEmail;
+              }
+            }catch(e){}
+          }
+        }catch(err){}
+
       }catch(err){}
 
       setTimeout(()=>{
