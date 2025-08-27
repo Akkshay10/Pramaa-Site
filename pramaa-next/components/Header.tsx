@@ -7,14 +7,14 @@ export default function Header(){
       <div className={`container nav ${open ? 'open' : ''}`}>
         <div className="nav-inner">
           <div className="brand" style={{display:'flex',alignItems:'center',gap:12}}>
-            <div className="logo-wrap" style={{position:'relative',width:72,height:72}}>
-              <img src="/assets/logo.png" alt="Pramaa Solutions logo" style={{width:72,height:'auto',display:'block',borderRadius:8}} onError={(e:any)=>{e.currentTarget.onerror=null; e.currentTarget.src='/assets/favicon.png'}}/>
-              <span aria-hidden className="logo-badge" style={{position:'absolute',right:-6,top:-6,width:14,height:14,borderRadius:999,background:'var(--badge-bg,#ffd166)',boxShadow:'0 4px 10px rgba(0,0,0,0.12)',border:'2px solid rgba(255,255,255,0.9)'}} />
+            <div className="logo-wrap" style={{position:'relative',width:120,height:120}}>
+              <img src="/assets/logo.png" alt="Pramaa Solutions logo" style={{height:'110px',width:'auto',borderRadius:10}} onError={(e:any)=>{e.currentTarget.onerror=null; e.currentTarget.src='/assets/favicon.png'}}/>
             </div>
             <div style={{lineHeight:1}}>
               <div style={{marginLeft:6,display:'flex',alignItems:'center'}}>
-                <div style={{fontSize:'0.9rem',fontWeight:600,color:'var(--brand2)',whiteSpace:'nowrap'}}>
-                  {`Copyright © ${new Date().getFullYear()} Pramaa Solutions Practical automation and custom platforms. - All Rights Reserved.`}
+                <div style={{fontSize:'.92rem',color:'var(--muted)',whiteSpace:'nowrap'}}>
+                  {/* Brand name only in header; copyright removed to keep it only in the footer */}
+                  <div style={{fontSize:'.9rem',fontWeight:600,color:'var(--brand2)'}}>Pramaa Solutions</div>
                 </div>
               </div>
             </div>

@@ -188,7 +188,7 @@
     <div class="container nav">
       <div class="nav-inner">
         <div class="brand" style="display:flex;align-items:center;gap:12px">
-          <div class="logo-wrap"><img src="./assets/logo.png" alt="Pramaa Solutions logo" onerror="this.onerror=null;this.src='./assets/favicon.png'" /></div>
+          <div class="logo-wrap" style="min-width:120px;min-height:120px;padding:12px"><img src="./assets/logo.png" alt="Pramaa Solutions logo" onerror="this.onerror=null;this.src='./assets/favicon.png'" style="height:110px;width:auto;border-radius:10px"/></div>
           <div style="line-height:1">
             <div style="font-size:1.05rem;font-weight:900;color:var(--brand2)">Pramaa Solutions</div>
           </div>
@@ -305,15 +305,16 @@
   <section id="contact">
     <div class="container">
       <h2>Contact / Book a demo</h2>
-      <p class="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., founder@pramaa.solutions).</p>
+      <p class="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., info@pramaa.solutions).</p>
       <form id="leadForm"
-            action="https://formsubmit.co/EMAIL_HERE"
+            action="https://formsubmit.co/info@pramaa.solutions"
             method="POST"
             name="contact" netlify class="reveal">
         <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="_next" value="/thank-you.html">
         <div class="twocol">
           <div>
             <label for="name">Name *</label>
@@ -356,7 +357,6 @@
             </select>
           </div>
         </div>
-        <label style="display:flex;gap:.6rem;align-items:center"><input type="checkbox" name="copy"/> <span>Send me a copy by email</span></label>
         <button class="btn btn-primary" type="submit">Get my estimate</button>
         <div id="thanks" style="display:none;margin-top:8px;color:var(--brand1);font-weight:900">Thanks! Your message was sent.</div>
       </form>
@@ -382,7 +382,7 @@
         </div>
         <div class="col-contact">
           <h4 style="margin:0 0 8px">Contact</h4>
-          <div style="color:var(--muted)">founder@pramaa.solutions</div>
+          <div style="color:var(--muted)">info@pramaa.solutions</div>
           <div style="color:var(--muted);margin-top:8px">+91 • (optional)</div>
         </div>
       </div>

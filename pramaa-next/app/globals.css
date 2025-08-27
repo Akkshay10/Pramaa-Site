@@ -1,14 +1,25 @@
 /* ...existing code... */
 :root{
-  --bg:#070b12; --panel:#0c121d; --card:#0f1624; --text:#eaf1ff; --muted:#9fb0c8;
-  --brand1:#6df0c2; --brand2:#7aa8ff; --brand3:#a67cff; --border:#1b2a44;
-  --glow: 0 0 40px rgba(109,240,194,.25), 0 8px 28px rgba(122,168,255,.15);
-  --radius:18px; --radius-lg:28px;
-  --logo-glow: 0 0 24px 6px rgba(122,168,255,0.45), 0 0 0 4px rgba(109,240,194,0.18);
-  --hero-gradient: linear-gradient(120deg, rgba(109,240,194,0.18) 0%, rgba(122,168,255,0.18) 100%);
-  --header-grad: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(122,168,255,0.02));
+  /* Updated palette — more vibrant, conversion-focused */
+  --bg:#071027;           /* deep navy background */
+  --panel:#0b1320;        /* slightly lifted panel */
+  --card:#0f1726;         /* card surface */
+  --text:#eaf4ff;         /* bright text */
+  --muted:#9fbfd6;        /* muted text */
+
+  /* Brand accents (CTA-friendly) */
+  --brand1:#3888FF;       /* primary blue — action */
+  --brand2:#14DC8C;       /* accent green — trust/confirm */
+  --brand3:#A67CFF;       /* supportive purple for depth */
+
+  /* Badge tokens (used for the small decorative badge) */
   --badge-bg: rgba(4,16,24,0.92);
-  --badge-fg: #eaf1ff;
+  --badge-fg: #eaf4ff;
+
+  --border:rgba(122,168,255,0.06);
+  --glow: 0 0 48px rgba(56,136,255,0.12), 0 10px 30px rgba(20,220,140,0.06);
+  --radius:18px; --radius-lg:28px;
+  --logo-glow: 0 0 28px rgba(56,136,255,0.18), 0 0 0 4px rgba(166,124,255,0.06);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -22,17 +33,23 @@ a{color:inherit;text-decoration:none}
 .container{max-width:1200px;margin:0 auto;padding:0 22px}
 .btn{display:inline-flex;gap:.65rem;align-items:center;justify-content:center;padding:.95rem 1.2rem;border-radius:14px;border:1px solid transparent;font-weight:700;cursor:pointer;transition:.25s;box-shadow:var(--glow)}
 .btn-primary{
-  background:linear-gradient(135deg,var(--brand1),var(--brand2));
-  color:#041018;
-  box-shadow:0 0 0 0 var(--brand1),var(--glow);
-  border:1.5px solid var(--brand2);
-  font-size:1.08rem;
+  background:linear-gradient(135deg,var(--brand2),var(--brand1));
+  color:#041018 !important; /* force black text for legibility */
+  text-shadow:none !important;
+  box-shadow:0 6px 30px rgba(56,136,255,0.14),0 2px 8px rgba(20,220,140,0.06);
+  border:2px solid rgba(255,255,255,0.08);
+  font-size:1.06rem;
+  font-weight:800;
   letter-spacing:.02em;
-  transition:box-shadow .25s,transform .18s,border-color .18s;
+  padding:.95rem 1.45rem;
+  border-radius:14px;
+  transition:box-shadow .18s,transform .12s,border-color .12s;
+  text-decoration:none;
 }
+.btn-primary *{ color:inherit !important; }
 .btn-primary:hover{
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 0 0 4px var(--brand1),var(--glow);
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 12px 48px rgba(56,136,255,0.18),0 4px 18px rgba(20,220,140,0.08);
   border-color:var(--brand1);
 }
 .btn-ghost{
@@ -52,14 +69,14 @@ header{position:sticky;top:0;z-index:40;background:var(--header-grad);backdrop-f
 .brand{display:flex;gap:.9rem;align-items:center;font-weight:900;letter-spacing:.2px}
 .brand img{height:96px;width:auto;border-radius:14px;box-shadow:var(--logo-glow),0 2px 18px rgba(0,0,0,.28);border:2.5px solid var(--brand2);background:rgba(255,255,255,0.04);transition:box-shadow .3s,border-color .3s,transform .2s}
 .brand img:hover{box-shadow:0 0 32px 8px var(--brand1),0 2px 18px rgba(0,0,0,.32);border-color:var(--brand1);transform:scale(1.06) rotate(-2deg)}
-.brand .logo-wrap{display:inline-grid;place-items:center;padding:14px 16px;border-radius:14px;background: linear-gradient(180deg, rgba(6,22,30,0.96), rgba(10,28,38,0.86));box-shadow:0 14px 42px rgba(0,0,0,0.78), 0 0 30px rgba(122,168,255,0.07);margin-right:12px;min-width:96px;min-height:96px}
-.brand .logo-wrap img{height:88px;width:auto;border-radius:8px;display:block;filter:none !important;opacity:1 !important;mix-blend-mode:normal !important;border:1px solid rgba(255,255,255,0.06);outline:4px solid rgba(255,255,255,0.04)}
+.brand .logo-wrap{display:inline-grid;place-items:center;padding:14px 18px;border-radius:14px;background: linear-gradient(180deg, rgba(6,22,30,0.96), rgba(10,28,38,0.86));box-shadow:0 14px 42px rgba(0,0,0,0.78), 0 0 30px rgba(122,168,255,0.07);margin-right:12px;min-width:120px;min-height:120px}
+.brand .logo-wrap img{height:110px;width:auto;border-radius:10px;display:block;filter:none !important;opacity:1 !important;mix-blend-mode:normal !important;border:1px solid rgba(255,255,255,0.06);outline:4px solid rgba(255,255,255,0.04)}
 footer .logo-wrap img{height:56px}
 .brand .logo-wrap img.logo-invert{filter: brightness(0) invert(1) contrast(1.05);-webkit-filter: brightness(0) invert(1) contrast(1.05);} 
 .links{display:flex;gap:12px;align-items:center}
 .links a{padding:.5rem .75rem;border-radius:10px;color:var(--muted);font-weight:700}
 .links a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
-.cta-small{padding:.6rem .95rem;border-radius:12px}
+.cta-small{padding:.7rem 1rem;border-radius:12px;font-weight:800;font-size:0.98rem}
 .menu-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 10px;border-radius:10px;font-size:20px;line-height:1;cursor:pointer}
 .container.nav.open .links{display:flex;flex-direction:column;position:absolute;top:70px;right:18px;background:linear-gradient(180deg,var(--panel),#071020);border:1px solid var(--border);padding:12px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);min-width:180px;z-index:60}
 .container.nav.open .links a{display:block;padding:.8rem 1rem}
@@ -114,9 +131,9 @@ footer{border-top:1px solid rgba(255,255,255,0.04);background:linear-gradient(18
 }
 @media (max-width: 640px){
   .cols-3{grid-template-columns:1fr}
-  .brand img{height:56px}
-  .brand .logo-wrap{min-width:64px;min-height:64px;padding:8px}
-  .brand .logo-wrap img{height:48px}
+  .brand img{height:64px}
+  .brand .logo-wrap{min-width:80px;min-height:80px;padding:8px}
+  .brand .logo-wrap img{height:64px}
   footer .footer-grid{grid-template-columns:1fr;gap:12px}
   .links a{padding:12px 10px}
   .btn{padding:.9rem 1rem}

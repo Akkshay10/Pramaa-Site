@@ -60,10 +60,34 @@ export default function SiteScripts(){
     const form = document.getElementById('leadForm') as HTMLFormElement | null;
     function onSubmit(e: Event){
       const f = e.target as HTMLFormElement | null;
-      // If submitting to FormSubmit, submit in a new tab so we can redirect the current page safely
+      // If submitting to FormSubmit, submit in a new tab so original page isn't blocked
       try{
         if(f && f.action && f.action.includes('formsubmit.co')){
           f.target = '_blank';
+          // Auto-CC the visitor and set reply-to so they receive a copy
+          try{
+            const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
+            const userEmail = emailField?.value?.trim() || '';
+            if(userEmail){
+              let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
+              if(!cc){
+                cc = document.createElement('input');
+                cc.type = 'hidden';
+                cc.name = '_cc';
+                f.appendChild(cc);
+              }
+              cc.value = userEmail;
+
+              let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
+              if(!reply){
+                reply = document.createElement('input');
+                reply.type = 'hidden';
+                reply.name = '_replyto';
+                f.appendChild(reply);
+              }
+              reply.value = userEmail;
+            }
+          }catch(e){}
         }
       }catch(err){}
 
@@ -72,8 +96,6 @@ export default function SiteScripts(){
         if(thanks) thanks.style.display = 'block';
         const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
         if(btn){ btn.disabled = true; btn.textContent = 'Submitted'; }
-        // Redirect to local thank-you page
-        try{ window.location.href = '/thank-you.html'; }catch(e){}
       }, 250);
     }
     form?.addEventListener('submit', onSubmit);

@@ -107,12 +107,14 @@ export default function Home(){
         <section id="contact">
           <div className="container">
             <h2>Contact / Book a demo</h2>
-            <p className="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., founder@pramaa.solutions).</p>
-            <form id="leadForm" action="https://formsubmit.co/akkshay.tewari@gmail.com" method="POST" name="contact" data-netlify="true" className="reveal">
+            <p className="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., info@pramaa.solutions).</p>
+
+            <form action="https://formsubmit.co/info@pramaa.solutions" method="POST" name="contact" className="reveal">
               <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
               <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="_next" value="/thank-you.html" />
               <div className="twocol">
                 <div>
                   <label htmlFor="name">Name *</label>
@@ -155,7 +157,6 @@ export default function Home(){
                   </select>
                 </div>
               </div>
-              <label style={{display:'flex',gap:'.6rem',alignItems:'center'}}><input type="checkbox" name="copy"/> <span>Send me a copy by email</span></label>
               <button className="btn btn-primary" type="submit">Get my estimate</button>
               <div id="thanks" style={{display:'none',marginTop:8,color:'var(--brand1)',fontWeight:900}}>Thanks! Your message was sent.</div>
             </form>
