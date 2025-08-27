@@ -305,15 +305,16 @@
   <section id="contact">
     <div class="container">
       <h2>Contact / Book a demo</h2>
-      <p class="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., founder@pramaa.solutions).</p>
+      <p class="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., info@pramaa.solutions).</p>
       <form id="leadForm"
-            action="https://formsubmit.co/EMAIL_HERE"
+            action="https://formsubmit.co/info@pramaa.solutions"
             method="POST"
             name="contact" netlify class="reveal">
         <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="form-name" value="contact">
+        <input type="hidden" name="_next" value="/thank-you.html">
         <div class="twocol">
           <div>
             <label for="name">Name *</label>
@@ -382,7 +383,7 @@
         </div>
         <div class="col-contact">
           <h4 style="margin:0 0 8px">Contact</h4>
-          <div style="color:var(--muted)">founder@pramaa.solutions</div>
+          <div style="color:var(--muted)">info@pramaa.solutions</div>
           <div style="color:var(--muted);margin-top:8px">+91 • (optional)</div>
         </div>
       </div>

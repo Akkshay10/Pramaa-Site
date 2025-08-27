@@ -60,7 +60,7 @@ export default function SiteScripts(){
     const form = document.getElementById('leadForm') as HTMLFormElement | null;
     function onSubmit(e: Event){
       const f = e.target as HTMLFormElement | null;
-      // If submitting to FormSubmit, submit in a new tab so we can redirect the current page safely
+      // If submitting to FormSubmit, submit in a new tab so original page isn't blocked
       try{
         if(f && f.action && f.action.includes('formsubmit.co')){
           f.target = '_blank';
@@ -72,8 +72,6 @@ export default function SiteScripts(){
         if(thanks) thanks.style.display = 'block';
         const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
         if(btn){ btn.disabled = true; btn.textContent = 'Submitted'; }
-        // Redirect to local thank-you page
-        try{ window.location.href = '/thank-you.html'; }catch(e){}
       }, 250);
     }
     form?.addEventListener('submit', onSubmit);

@@ -23,7 +23,7 @@ export default function Footer(){
           </div>
           <div className="col-contact">
             <h4 style={{margin:0,marginBottom:8}}>Contact</h4>
-            <div style={{color:'var(--muted)'}}>founder@pramaa.solutions</div>
+            <div style={{color:'var(--muted)'}}>info@pramaa.solutions</div>
             <div style={{color:'var(--muted)',marginTop:8}}>+91 • (optional)</div>
           </div>
         </div>
