@@ -53,6 +53,8 @@ Thumbs.db
 # Next.js / Node
 node_modules/
 .next/
+pramaa-next/.next
+/.next/
 out/
 pramma-next/out
 npm-debug.log*
