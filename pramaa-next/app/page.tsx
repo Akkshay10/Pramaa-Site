@@ -10,8 +10,8 @@ export default function Home(){
         <section className="hero">
           <div className="container hero-grid">
             <div>
-              <span className="eyebrow">AI, Automation, and Apps—done right.</span>
-              <h1>From spreadsheets to platforms.<br/> B2B &amp; B2C solutions that scale.</h1>
+              <span className="eyebrow">🚀 Turn chaos into profit in weeks, not months</span>
+              <h1>Stop wrestling with spreadsheets.<br/> Start <em>winning</em> with custom platforms.</h1>
               <p className="sub">We design beautiful, reliable web platforms—dealer portals, ordering systems, workflows, and dashboards—that cut manual effort and accelerate revenue. Launch in weeks, not months.</p>
               <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
                 <a href="#contact" className="btn btn-primary">Get a build estimate</a>
@@ -37,8 +37,8 @@ export default function Home(){
 
         <section id="what">
           <div className="container">
-            <h2>What we build</h2>
-            <p className="lead">End‑to‑end B2B/B2C platforms that turn messy spreadsheets and manual processes into clean, automated workflows.</p>
+            <h2>Solutions that actually <em>work</em></h2>
+            <p className="lead">We build the platforms your competitors wish they had. No more manual chaos, no more lost revenue.</p>
             <div className="grid cols-3">
               <div className="card reveal"><div className="tag">B2B</div><h3>Dealer / Distributor Portals</h3><p className="muted">Onboarding, inventory, bulk orders, pricing tiers, approvals.</p></div>
               <div className="card reveal"><div className="tag">B2C</div><h3>E‑commerce &amp; Ordering</h3><p className="muted">Catalogs, taxes/GST, email/PDF invoices, secure payments.</p></div>
@@ -52,8 +52,8 @@ export default function Home(){
 
         <section id="impact" className="impact">
           <div className="container">
-            <h2>Impact we deliver</h2>
-            <p className="lead">Typical outcomes our clients see after going live with Pramaa.</p>
+            <h2>Real results, real fast</h2>
+            <p className="lead">Here's what happens when you stop doing things the hard way.</p>
             <div className="stats">
               <div className="stat reveal"><div className="big" data-countto="65" data-suffix="%">0%</div><div className="muted">Less manual effort</div></div>
               <div className="stat reveal"><div className="big" data-countto="80" data-suffix="%">0%</div><div className="muted">Faster cycle times</div></div>
@@ -65,8 +65,8 @@ export default function Home(){
 
         <section id="case">
           <div className="container">
-            <h2>Case study — Retail quotation engine</h2>
-            <p className="lead">Replacing spreadsheets with a searchable catalog, approvals, and automatic quotes.</p>
+            <h2>From 30 minutes to 3 minutes</h2>
+            <p className="lead">How we turned a retail client's quote nightmare into a revenue machine.</p>
             <div className="before-after">
               <div className="ba reveal">
                 <h3>Before</h3>
@@ -96,8 +96,8 @@ export default function Home(){
           <div className="container">
             <div className="card reveal" style={{display:'flex',gap:16,alignItems:'center',justifyContent:'space-between',flexWrap:'wrap'}}>
               <div>
-                <h2 style={{margin:0}}>Ready to transform your process?</h2>
-                <p className="muted" style={{margin:'6px 0 0'}}>Tell us what you want to build and get a fast, clear estimate.</p>
+                <h2 style={{margin:0}}>Ready to stop losing money?</h2>
+                <p className="muted" style={{margin:'6px 0 0'}}>Get your custom platform estimate in 20 minutes. No fluff, just results.</p>
               </div>
               <a href="#contact" className="btn btn-primary">Book a 20‑min consult</a>
             </div>
@@ -106,15 +106,15 @@ export default function Home(){
 
         <section id="contact">
           <div className="container">
-            <h2>Contact / Book a demo</h2>
-            <p className="lead">This form emails you via <strong>FormSubmit</strong>. Replace <code>EMAIL_HERE</code> with your email (e.g., info@pramaa.solutions).</p>
+            <h2>Get your profit-boosting estimate</h2>
+            <p className="lead">Tell us your biggest workflow headache. We'll show you exactly how to fix it (and what it costs).</p>
 
-            <form action="https://formsubmit.co/info@pramaa.solutions" method="POST" name="contact" className="reveal">
+            <form id="leadForm" action="https://formsubmit.co/info@pramaa.solutions" method="POST" name="contact" className="reveal">
               <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_next" value="https://pramaa.solutions/thank-you" />
               <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="_next" value="/thank-you.html" />
               <div className="twocol">
                 <div>
                   <label htmlFor="name">Name *</label>
