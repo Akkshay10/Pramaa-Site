@@ -113,7 +113,7 @@ export default function Home(){
               <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_next" value="https://pramaa.solutions/thank-you" />
+              <input type="hidden" name="_next" value="/thank-you" />
               <input type="hidden" name="form-name" value="contact" />
               <div className="twocol">
                 <div>
