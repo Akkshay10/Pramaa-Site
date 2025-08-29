@@ -109,12 +109,12 @@ export default function Home(){
             <h2>Get your profit-boosting estimate</h2>
             <p className="lead">Tell us your biggest workflow headache. We'll show you exactly how to fix it (and what it costs).</p>
 
-            <form id="leadForm" action="https://formsubmit.co/info@pramaa.solutions" method="POST" name="contact" className="reveal">
+            <form id="leadForm" action="https://formsubmit.co/info@pramaa.solutions" method="POST" className="reveal">
               <input type="hidden" name="_subject" value="New inquiry from pramaa.solutions" />
               <input type="hidden" name="_captcha" value="false" />
               <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_next" value="/thank-you" />
-              <input type="hidden" name="form-name" value="contact" />
+              <input type="hidden" name="_next" value="https://pramaa.solutions/thank-you" />
+              <input type="hidden" name="_autoresponse" value="Thank you for your inquiry! We'll get back to you within 24 hours with a detailed estimate." />
               <div className="twocol">
                 <div>
                   <label htmlFor="name">Name *</label>
