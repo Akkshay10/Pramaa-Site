@@ -56,95 +56,13 @@ export default function SiteScripts(){
 
     document.querySelectorAll('.reveal').forEach(el=> observer.observe(el));
 
-    // Form submit handler — shows thanks & disables button
-    const form = document.getElementById('leadForm') as HTMLFormElement | null;
-    async function onSubmit(e: Event){
-      const f = e.target as HTMLFormElement | null;
-      e.preventDefault?.();
-      try{
-        if(f && f.action && f.action.includes('formsubmit.co')){
-          // existing behavior for direct FormSubmit posts
-          f.target = '_blank';
-        }
-
-        // For FormSubmit, let it handle naturally but add enhancements
-        if(f && f.action && f.action.includes('formsubmit.co')){
-          // Auto-CC and reply-to setup
-          try{
-            const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
-            const userEmail = emailField?.value?.trim() || '';
-            if(userEmail){
-              let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
-              if(!cc){
-                cc = document.createElement('input');
-                cc.type = 'hidden';
-                cc.name = '_cc';
-                f.appendChild(cc);
-              }
-              cc.value = userEmail;
-
-              let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
-              if(!reply){
-                reply = document.createElement('input');
-                reply.type = 'hidden';
-                reply.name = '_replyto';
-                f.appendChild(reply);
-              }
-              reply.value = userEmail;
-            }
-          }catch(e){}
-          
-          // Let FormSubmit handle the submission naturally
-          return;
-        }
-
-        // If submitting to FormSubmit, auto-cc and reply-to logic
-        try{
-          if(f && f.action && f.action.includes('formsubmit.co')){
-            // Auto-CC the visitor and set reply-to so they receive a copy
-            try{
-              const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
-              const userEmail = emailField?.value?.trim() || '';
-              if(userEmail){
-                let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
-                if(!cc){
-                  cc = document.createElement('input');
-                  cc.type = 'hidden';
-                  cc.name = '_cc';
-                  f.appendChild(cc);
-                }
-                cc.value = userEmail;
-
-                let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
-                if(!reply){
-                  reply = document.createElement('input');
-                  reply.type = 'hidden';
-                  reply.name = '_replyto';
-                  f.appendChild(reply);
-                }
-                reply.value = userEmail;
-              }
-            }catch(e){}
-          }
-        }catch(err){}
-
-      }catch(err){}
-
-      setTimeout(()=>{
-        const thanks = document.getElementById('thanks') as HTMLElement | null;
-        if(thanks) thanks.style.display = 'block';
-        const btn = form?.querySelector('button[type="submit"]') as HTMLButtonElement | null;
-        if(btn){ btn.disabled = true; btn.textContent = 'Submitted'; }
-      }, 250);
-    }
-    form?.addEventListener('submit', onSubmit);
+    // No form interference - let FormSubmit work naturally
 
     // Set year if #yr exists (keeps original footer behavior)
     const yr = document.getElementById('yr');
     if(yr) yr.textContent = String(new Date().getFullYear());
 
     return ()=>{
-      form?.removeEventListener('submit', onSubmit);
       observer.disconnect();
     }
   }, []);

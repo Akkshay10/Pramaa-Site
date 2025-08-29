@@ -9,6 +9,10 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Form notifications - send form submissions to your email
+[build.environment]
+  NETLIFY_EMAILS_DIRECTORY = "emails"
+
 # Ensure sitemap and robots (generated into pramaa-next/public) are served
 # and get reasonable caching
 [[headers]]
