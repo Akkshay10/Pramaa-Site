@@ -67,25 +67,35 @@ export default function SiteScripts(){
           f.target = '_blank';
         }
 
-        // If the form action points to the Netlify function, submit via fetch
-        if(f && f.action && f.action.includes('/.netlify/functions/submit')){
-          const data = new FormData(f);
-          // send as urlencoded so the function can parse it
-          const body = new URLSearchParams();
-          data.forEach((v,k)=> body.append(k, String(v)));
+        // For FormSubmit, let it handle naturally but add enhancements
+        if(f && f.action && f.action.includes('formsubmit.co')){
+          // Auto-CC and reply-to setup
           try{
-            const res = await fetch(f.action, { method: 'POST', body, headers: { 'Accept': 'application/json' } });
-            // on success redirect to _next or show thanks
-            if(res.ok){
-              const next = (f.querySelector('input[name="_next"]') as HTMLInputElement | null)?.value || '/thank-you.html';
-              window.location.href = next;
+            const emailField = f.querySelector('input[name="email"]') as HTMLInputElement | null;
+            const userEmail = emailField?.value?.trim() || '';
+            if(userEmail){
+              let cc = f.querySelector('input[name="_cc"]') as HTMLInputElement | null;
+              if(!cc){
+                cc = document.createElement('input');
+                cc.type = 'hidden';
+                cc.name = '_cc';
+                f.appendChild(cc);
+              }
+              cc.value = userEmail;
+
+              let reply = f.querySelector('input[name="_replyto"]') as HTMLInputElement | null;
+              if(!reply){
+                reply = document.createElement('input');
+                reply.type = 'hidden';
+                reply.name = '_replyto';
+                f.appendChild(reply);
+              }
+              reply.value = userEmail;
             }
-          }catch(err){
-            // fall back to showing thanks locally
-            const thanks = document.getElementById('thanks') as HTMLElement | null;
-            if(thanks) thanks.style.display = 'block';
-          }
-          return; // prevent default form submission
+          }catch(e){}
+          
+          // Let FormSubmit handle the submission naturally
+          return;
         }
 
         // If submitting to FormSubmit, auto-cc and reply-to logic
