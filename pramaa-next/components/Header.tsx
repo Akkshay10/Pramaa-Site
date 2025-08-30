@@ -44,8 +44,8 @@ export default function Header(){
               <img src="/assets/logo.png" alt="Pramaa logo" />
             </div>
             <div style={{display:'flex',flexDirection:'column'}}>
-              <div style={{fontWeight:900}}>Pramaa</div>
-              <div style={{fontSize:'.86rem',color:'var(--brand2)',fontWeight:600}}>Build. Automate. Scale.</div>
+              <div className="brand-name-glow">Pramaa Solutions</div>
+              <div className="brand-tagline">Build. Automate. Scale.</div>
             </div>
           </div>
           <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label="Toggle menu">

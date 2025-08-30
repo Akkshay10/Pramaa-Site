@@ -10,8 +10,8 @@ export default function Home(){
         <section className="hero">
           <div className="container hero-grid">
             <div>
-              <span className="eyebrow">🚀 Turn chaos into profit in weeks, not months</span>
-              <h1>Stop wrestling with spreadsheets.<br/> Start <em>winning</em> with custom platforms.</h1>
+              <span className="eyebrow eyebrow-purple">🚀 AI, Automation, and Apps—done right.</span>
+              <h1>From spreadsheets to platforms.<br/> B2B &amp; B2C solutions that scale.</h1>
               <p className="sub">We design beautiful, reliable web platforms—dealer portals, ordering systems, workflows, and dashboards—that cut manual effort and accelerate revenue. Launch in weeks, not months.</p>
               <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
                 <a href="#contact" className="btn btn-primary">Get a build estimate</a>
