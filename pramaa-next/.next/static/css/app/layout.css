@@ -88,6 +88,35 @@ footer .logo-wrap img{height:56px}
 .hero::before{content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);width:1200px;height:320px;background:radial-gradient(ellipse at center,rgba(166,124,255,0.13) 0%,rgba(109,240,194,0.09) 100%);filter:blur(18px);z-index:0;pointer-events:none}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;grid-gap:30px;gap:30px;align-items:center;position:relative;z-index:1}
 .eyebrow{display:inline-flex;gap:.4rem;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.35rem .75rem;color:var(--muted);font-size:.85rem}
+
+/* Eye-catching purple eyebrow variant */
+.eyebrow-purple {
+  background: linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.12));
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  color: #c084fc;
+  font-weight: 800;
+  text-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
+  box-shadow: 
+    0 0 20px rgba(147, 51, 234, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  animation: purple-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes purple-pulse {
+  0% { 
+    box-shadow: 
+      0 0 20px rgba(147, 51, 234, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 15px rgba(147, 51, 234, 0.3);
+  }
+  100% { 
+    box-shadow: 
+      0 0 30px rgba(147, 51, 234, 0.25),
+      0 0 40px rgba(168, 85, 247, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    text-shadow: 0 0 20px rgba(147, 51, 234, 0.5);
+  }
+}
 h1{font-size:clamp(30px,4.8vw,60px);line-height:1.05;margin:12px 0}
 .sub{color:var(--muted);font-size:1.08rem;margin:0 0 22px}
 .hero-card{background:linear-gradient(180deg,#101b2d,#0c1220);border:1px solid var(--border);border-radius:var(--radius-lg);padding:22px;box-shadow:var(--glow)}
@@ -141,4 +170,168 @@ footer{border-top:1px solid rgba(255,255,255,0.04);background:linear-gradient(18
   .links a{padding:12px 10px}
   .btn{padding:.9rem 1rem}
 }
+/* Ambient Background - Site-wide starfield with purple AI theme */
+.ambient-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  background: 
+    /* Film grain overlay */
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E"),
+    /* Starfield dots - purple tinted */
+    radial-gradient(circle at 1px 1px, rgba(200,180,255,0.2) 1px, transparent 0),
+    /* Deep purple glow - right */
+    radial-gradient(ellipse 800px 600px at 85% 30%, rgba(139,92,246,0.16) 0%, transparent 60%),
+    /* Violet glow - left */
+    radial-gradient(ellipse 700px 500px at 15% 70%, rgba(168,85,247,0.18) 0%, transparent 70%),
+    /* Bright purple halo - top center */
+    radial-gradient(ellipse 900px 400px at 50% 0%, rgba(147,51,234,0.14) 0%, transparent 60%),
+    /* Base deep purple-navy */
+    #0a0b1f;
+  background-size: 
+    400px 400px, /* grain */
+    18px 18px,   /* starfield */
+    100% 100%,   /* deep purple glow */
+    100% 100%,   /* violet glow */
+    100% 100%,   /* purple halo */
+    100% 100%;   /* base color */
+  background-repeat: 
+    repeat,
+    repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat,
+    no-repeat;
+  background-blend-mode: 
+    overlay,
+    normal,
+    normal,
+    normal,
+    normal,
+    normal;
+  animation: starfield-drift 120s linear infinite;
+}
 
+/* Subtle animation for starfield movement */
+@keyframes starfield-drift {
+  0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+  100% { background-position: 0 0, 18px 18px, 0 0, 0 0, 0 0, 0 0; }
+}
+
+/* Ensure it doesn't interfere with content */
+.ambient-background::before,
+.ambient-background::after {
+  display: none;
+}
+
+/* Performance optimization for mobile */
+@media (max-width: 768px) {
+  .ambient-background {
+    background: 
+      /* Simplified for mobile - no grain, smaller glows */
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.1) 1px, transparent 0),
+      radial-gradient(ellipse 600px 400px at 85% 30%, rgba(251,146,60,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 500px 350px at 15% 70%, rgba(56,189,248,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 700px 300px at 50% 0%, rgba(90,97,255,0.08) 0%, transparent 60%),
+      #0b0f1a;
+    background-size: 
+      18px 18px,
+      100% 100%,
+      100% 100%,
+      100% 100%,
+      100% 100%;
+    animation: none; /* Disable animation on mobile for performance */
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .ambient-background {
+    animation: none;
+  }
+}/* 
+Glowing Brand Name Styling */
+.brand-name-glow {
+  font-size: 1.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #c084fc, #a855f7, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 0 20px rgba(168, 85, 247, 0.6),
+    0 0 40px rgba(147, 51, 234, 0.4),
+    0 0 60px rgba(139, 92, 246, 0.3);
+  filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+  animation: brand-glow 4s ease-in-out infinite alternate;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.brand-name-glow::before {
+  content: 'Pramaa Solutions';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #c084fc, #a855f7, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: blur(2px);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+.brand-tagline {
+  font-size: 0.86rem;
+  color: var(--brand2);
+  font-weight: 600;
+  margin-top: 2px;
+  text-shadow: 0 0 10px rgba(20, 220, 140, 0.3);
+}
+
+@keyframes brand-glow {
+  0% {
+    text-shadow: 
+      0 0 20px rgba(168, 85, 247, 0.6),
+      0 0 40px rgba(147, 51, 234, 0.4),
+      0 0 60px rgba(139, 92, 246, 0.3);
+    filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));
+  }
+  100% {
+    text-shadow: 
+      0 0 30px rgba(168, 85, 247, 0.8),
+      0 0 50px rgba(147, 51, 234, 0.6),
+      0 0 70px rgba(139, 92, 246, 0.4);
+    filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.7));
+  }
+}
+
+/* Mobile optimization for brand name */
+@media (max-width: 640px) {
+  .brand-name-glow {
+    font-size: 1.2rem;
+    text-shadow: 
+      0 0 15px rgba(168, 85, 247, 0.5),
+      0 0 30px rgba(147, 51, 234, 0.3);
+    filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+  }
+  
+  .brand-tagline {
+    font-size: 0.8rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .brand-name-glow {
+    animation: none;
+    text-shadow: 
+      0 0 25px rgba(168, 85, 247, 0.7),
+      0 0 45px rgba(147, 51, 234, 0.5);
+  }
+}

@@ -1,4 +1,5 @@
 import './globals.css'
+import AmbientBackground from '../components/AmbientBackground'
 
 export const metadata = {
   title: 'Pramaa Solutions',
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <AmbientBackground />
+        {children}
+      </body>
     </html>
   )
 }
