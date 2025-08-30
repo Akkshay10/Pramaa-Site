@@ -1,0 +1,26 @@
+# Netlify config for deploying the Next.js app in pramaa-next
+[build]
+  # Run build from the pramaa-next subfolder
+  command = "cd pramaa-next && npm ci && npm run build"
+  # The Next.js Netlify plugin handles publish output; keep a safe default
+  publish = "pramaa-next/.next"
+
+# Use the official Netlify Next.js plugin for full App Router support
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Form notifications - send form submissions to your email
+[build.environment]
+  NETLIFY_EMAILS_DIRECTORY = "emails"
+
+# Ensure sitemap and robots (generated into pramaa-next/public) are served
+# and get reasonable caching
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

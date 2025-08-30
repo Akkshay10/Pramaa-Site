@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Form</title>
+</head>
+<body>
+    <!-- This hidden form helps Netlify detect the form fields -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <input type="text" name="company" />
+        <input type="text" name="phone" />
+        <textarea name="message"></textarea>
+        <select name="timeline">
+            <option>2–4 weeks</option>
+            <option>1–2 months</option>
+            <option>&gt;2 months</option>
+        </select>
+        <select name="budget">
+            <option>₹1–2L</option>
+            <option>₹2–5L</option>
+            <option>₹5L+</option>
+        </select>
+    </form>
+</body>
+</html>
