@@ -39,23 +39,24 @@ export default function Header(){
     <header>
       <div className={`container nav ${open ? 'open' : ''}`}>
         <div className="nav-inner">
-          <div className="brand">
+          <a href="/" className="brand" onClick={() => setOpen(false)}>
             <div className="logo-wrap">
-              <img src="/assets/logo.png" alt="Pramaa logo" />
+              <img src="/assets/logo.png" alt="Pramaa Solutions - AI, Automation, and Apps" />
             </div>
             <div style={{display:'flex',flexDirection:'column'}}>
               <div className="brand-name-glow">Pramaa Solutions</div>
               <div className="brand-tagline">Build. Automate. Scale.</div>
             </div>
-          </div>
+          </a>
           <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label="Toggle menu">
             {open ? '✕' : '☰'}
           </button>
           <nav className="links">
-            <a href="#what" onClick={() => setOpen(false)}>Solutions</a>
-            <a href="#impact" onClick={() => setOpen(false)}>Impact</a>
-            <a href="#case" onClick={() => setOpen(false)}>Case study</a>
-            <a className="cta-small btn-primary" href="#contact" onClick={() => setOpen(false)}>Book a consult</a>
+            <a href="/#what" onClick={() => setOpen(false)}>Solutions</a>
+            <a href="/ai-services" onClick={() => setOpen(false)}>AI Services</a>
+            <a href="/#impact" onClick={() => setOpen(false)}>Impact</a>
+            <a href="/#case" onClick={() => setOpen(false)}>Case study</a>
+            <a className="cta-small btn-primary" href="/#contact" onClick={() => setOpen(false)}>Book a consult</a>
           </nav>
         </div>
       </div>
