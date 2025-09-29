@@ -11,8 +11,18 @@ export default function Home(){
           <div className="container hero-grid">
             <div>
               <span className="eyebrow eyebrow-purple">🚀 AI, Automation, and Apps—done right.</span>
-              <h1>From spreadsheets to platforms.<br/> B2B &amp; B2C solutions that scale.</h1>
+              <h1>From spreadsheets to platforms.<br/> B2B &amp; B2C solutions that <em>scale</em>.</h1>
               <p className="sub">We design beautiful, reliable web platforms—dealer portals, ordering systems, workflows, and dashboards—that cut manual effort and accelerate revenue. Launch in weeks, not months.</p>
+              <div style={{display:'flex', gap:'16px', alignItems:'center', marginBottom:'20px', flexWrap:'wrap'}}>
+                <div style={{display:'flex', alignItems:'center', gap:'6px', fontSize:'0.9rem', color:'var(--muted)'}}>
+                  <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--brand2)'}}></div>
+                  <span>Trusted by 50+ businesses</span>
+                </div>
+                <div style={{display:'flex', alignItems:'center', gap:'6px', fontSize:'0.9rem', color:'var(--muted)'}}>
+                  <div style={{width:'8px', height:'8px', borderRadius:'50%', background:'var(--brand1)'}}></div>
+                  <span>Average 5× ROI in 6 months</span>
+                </div>
+              </div>
               <div style={{display:'flex',gap:12,flexWrap:'wrap'}}>
                 <a href="#contact" className="btn btn-primary">Get a build estimate</a>
                 <a href="#what" className="btn btn-ghost">See solutions</a>
@@ -37,14 +47,32 @@ export default function Home(){
 
         <section id="what">
           <div className="container">
-            <h2>Solutions that actually <em>work</em></h2>
-            <p className="lead">We build the platforms your competitors wish they had. No more manual chaos, no more lost revenue.</p>
+            <div style={{textAlign:'center', marginBottom:'48px'}}>
+              <h2>Solutions that actually <em>work</em></h2>
+              <p className="lead">We build the platforms your competitors wish they had. No more manual chaos, no more lost revenue.</p>
+              <div style={{display:'flex', justifyContent:'center', gap:'32px', marginTop:'24px', flexWrap:'wrap'}}>
+                <div style={{display:'flex', alignItems:'center', gap:'8px', color:'var(--brand2)', fontSize:'0.9rem', fontWeight:'700'}}>
+                  <span style={{fontSize:'1.2rem'}}>✓</span> 99.9% Uptime Guaranteed
+                </div>
+                <div style={{display:'flex', alignItems:'center', gap:'8px', color:'var(--brand2)', fontSize:'0.9rem', fontWeight:'700'}}>
+                  <span style={{fontSize:'1.2rem'}}>✓</span> 24/7 Support Included
+                </div>
+                <div style={{display:'flex', alignItems:'center', gap:'8px', color:'var(--brand2)', fontSize:'0.9rem', fontWeight:'700'}}>
+                  <span style={{fontSize:'1.2rem'}}>✓</span> Launch in 2-4 Weeks
+                </div>
+              </div>
+            </div>
             <div className="grid cols-3">
               <div className="card reveal"><div className="tag">B2B</div><h3>Dealer / Distributor Portals</h3><p className="muted">Onboarding, inventory, bulk orders, pricing tiers, approvals.</p></div>
               <div className="card reveal"><div className="tag">B2C</div><h3>E‑commerce &amp; Ordering</h3><p className="muted">Catalogs, taxes/GST, email/PDF invoices, secure payments.</p></div>
               <div className="card reveal"><div className="tag">Ops</div><h3>Internal Tools</h3><p className="muted">Tickets, forms, audit logs, role‑based access, notifications.</p></div>
               <div className="card reveal"><div className="tag">Dashboards</div><h3>Data &amp; Insights</h3><p className="muted">Business KPIs with scheduled refresh and exports.</p></div>
-              <div className="card reveal"><div className="tag">AI</div><h3>Assistants &amp; Autofill</h3><p className="muted">Knowledge search, document Q&amp;A, form autofill, email drafts.</p></div>
+              <div className="card reveal">
+                <div className="tag">AI</div>
+                <h3><a href="/ai-services" style={{color:'inherit',textDecoration:'none'}}>AI Solutions & Automation</a></h3>
+                <p className="muted">Intelligent chatbots, workflow automation, predictive analytics, and custom AI integrations.</p>
+                <a href="/ai-services" className="btn btn-ghost" style={{marginTop:'12px',fontSize:'0.9rem',padding:'8px 16px'}}>Explore AI Services →</a>
+              </div>
               <div className="card reveal"><div className="tag">Compliance</div><h3>Audits &amp; Validation</h3><p className="muted">GSTIN checks, audit trails, CSV/Excel import &amp; export.</p></div>
             </div>
           </div>
@@ -88,6 +116,39 @@ export default function Home(){
             <div className="grid cols-2" style={{marginTop:14}}>
               <div className="card reveal"><strong>Result:</strong> 70% fewer manual steps, 5× faster quotes, fewer pricing errors.</div>
               <div className="card reveal"><strong>Testimonial:</strong> “Our team stopped chasing spreadsheets. Customers get quotes in minutes.”</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="services-overview">
+          <div className="container">
+            <h2>Two Ways We Transform Your Business</h2>
+            <p className="lead">Choose the approach that fits your needs—or combine both for maximum impact.</p>
+            <div className="grid cols-2">
+              <div className="card reveal" style={{background:'linear-gradient(135deg, rgba(56,136,255,0.08), rgba(20,220,140,0.06))', border:'2px solid rgba(56,136,255,0.2)'}}>
+                <div className="tag" style={{background:'var(--brand1)', color:'white'}}>Platform Development</div>
+                <h3>Custom Web Platforms</h3>
+                <p className="muted">Full-scale applications, portals, and systems built from scratch. Perfect for complex workflows and unique business requirements.</p>
+                <ul style={{color:'var(--muted)', fontSize:'0.95rem', marginTop:'12px'}}>
+                  <li>Dealer/distributor portals</li>
+                  <li>E-commerce & ordering systems</li>
+                  <li>Internal tools & dashboards</li>
+                  <li>Compliance & audit systems</li>
+                </ul>
+                <a href="#contact" className="btn btn-primary" style={{marginTop:'16px', width:'100%'}}>Get Platform Estimate</a>
+              </div>
+              <div className="card reveal" style={{background:'linear-gradient(135deg, rgba(147,51,234,0.08), rgba(168,85,247,0.06))', border:'2px solid rgba(147,51,234,0.3)'}}>
+                <div className="tag" style={{background:'linear-gradient(135deg, #a855f7, #8b5cf6)', color:'white'}}>AI Services</div>
+                <h3>AI-Powered Solutions</h3>
+                <p className="muted">Intelligent automation and AI integrations that work with your existing systems. Fast deployment, immediate ROI.</p>
+                <ul style={{color:'var(--muted)', fontSize:'0.95rem', marginTop:'12px'}}>
+                  <li>Chatbots & AI assistants</li>
+                  <li>Workflow automation</li>
+                  <li>Predictive analytics</li>
+                  <li>Content generation</li>
+                </ul>
+                <a href="/ai-services" className="btn btn-primary" style={{marginTop:'16px', width:'100%', background:'linear-gradient(135deg, #a855f7, #8b5cf6)'}}>Explore AI Services</a>
+              </div>
             </div>
           </div>
         </section>
